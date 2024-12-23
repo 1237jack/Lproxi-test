@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Main styles -->
+  <link rel="stylesheet" href="snow.css"> <!-- Snowfall effect styles -->
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    iframe {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      z-index: 1;
+    }
+
+    .snow, .snow2 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: url('https://i.ibb.co/GCRjwL7/snow.png') repeat;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .snow {
+      background-size: 50em;
+      animation: snowfall 60s linear infinite;
+    }
+
+    .snow2 {
+      background-size: 50em;
+      animation: snowfall-reverse 120s linear infinite;
+      opacity: 0.5;
+    }
+
+    @keyframes snowfall {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: -200% 200%;
+      }
+    }
+
+    @keyframes snowfall-reverse {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 200% 200%;
+      }
+    }
+  </style>
+  <script>
+    // Ensure user is logged in before showing the page
+    if (!sessionStorage.getItem('loggedIn')) {
+      document.body.innerHTML = '<h1>You need to log in first!</h1><p><a href="index.html">Go to Login Page</a></p>';
+    }
+
+    // Decode and dynamically set iframe source
+    document.addEventListener('DOMContentLoaded', function () {
+      const encodedUrl = 'aHR0cHM6Ly8xMjM3amFjay5naXRodWIuaW8vTW92dnZ2dmZkaGRoZGZo'; // Encoded URL
+      document.getElementById('movieFrame').src = atob(encodedUrl);
+    });
+  </script>
+</head>
+<body>
+  <!-- Snowfall effect -->
+  <div class="snow"></div>
+  <div class="snow2"></div>
+
+  <!-- Dynamic iframe -->
+  <iframe id="movieFrame" title="Movies Page"></iframe>
+</body>
+</html>

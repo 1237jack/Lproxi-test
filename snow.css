@@ -1,0 +1,46 @@
+/* Snowfall Effect */
+body {
+  margin: 0;
+  overflow: hidden; /* Prevent scrollbars */
+}
+
+.snow, 
+.snow2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: url('https://i.ibb.co/GCRjwL7/snow.png') repeat;
+  pointer-events: none; /* Allow interaction with other elements */
+  z-index: 0;
+}
+
+.snow {
+  background-size: 50em;
+  animation: snowfall 60s linear infinite; /* Increased duration to slow it down */
+}
+
+.snow2 {
+  background-size: 50em;
+  animation: snowfall-reverse 120s linear infinite; /* Increased duration to make it even slower */
+  opacity: 0.5;
+}
+
+@keyframes snowfall {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -200% 200%;
+  }
+}
+
+@keyframes snowfall-reverse {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
