@@ -1,1 +1,14 @@
-document.querySelector('.button-confirm').addEventListener('click'%2C%20function(event)%20%7B%0A%20%20event.preventDefault()%3B%0A%0A%20%20const%20username%20%3D%20document.querySelector('input%5Bname%3D%22username%22%5D').value%3B%0A%20%20const%20password%20%3D%20document.querySelector('input%5Bname%3D%22password%22%5D').value%3B%0A%0A%20%20%2F%2F%20Check%20if%20the%20username%20and%20password%20match%0A%20%20if%20(username%20%3D%3D%3D%20'Admin'%20%26%26%20password%20%3D%3D%3D%20'Rockclimbing2024')%20%7B%0A%20%20%20%20sessionStorage.setItem('loggedIn'%2C%20'true')%3B%20%2F%2F%20Store%20the%20login%20state%0A%20%20%20%20window.location.href%20%3D%20'dashboard.html'%3B%20%2F%2F%20Redirect%20to%20protected%20page%0A%20%20%7D%20else%20%7B%0A%20%20%20%20alert('Invalid%20username%20or%20password!')%3B%0A%20%20%7D%0A%7D)%3B%0A
+document.querySelector('.button-confirm').addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const username = document.querySelector('input[name="username"]').value;
+  const password = document.querySelector('input[name="password"]').value;
+
+  // Check if the username and password match
+  if (username === 'Admin' && password === 'Rockclimbing2024') {
+    sessionStorage.setItem('loggedIn', 'true'); // Store the login state
+    window.location.href = 'dashboard.html'; // Redirect to protected page
+  } else {
+    alert('Invalid username or password!');
+  }
+});
