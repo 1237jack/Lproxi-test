@@ -69,10 +69,10 @@
       document.body.innerHTML = '<h1>You need to log in first!</h1><p><a href="index.html">Go to Login Page</a></p>';
     }
 
-    // Decode and dynamically set iframe source
+    // Set iframe source with encoded URL
     document.addEventListener('DOMContentLoaded', function () {
-      const encodedUrl = 'aHR0cHM6Ly8xMjM3amFjay5naXRodWIuaW8vTW92dnZ2dmZkaGRoZGZo'; // Encoded URL
-      document.getElementById('movieFrame').src = atob(encodedUrl);
+      const encodedUrl = 'https%3A%2F%2F1237jack.github.io%2FMovvvvvfdhdhdfhdfh%2F';
+      document.getElementById('movieFrame').src = decodeURIComponent(encodedUrl);
     });
   </script>
 </head>
